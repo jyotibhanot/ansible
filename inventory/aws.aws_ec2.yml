@@ -1,0 +1,17 @@
+# Ansible AWS EC2 dynamic inventory plugin
+# https://docs.ansible.com/ansible/2.6/plugins/inventory/aws_ec2.html
+plugin: aws_ec2
+regions:
+  - eu-central-1
+  - eu-west-1
+  - us-east-2
+hostnames:
+  - private-ip-address
+keyed_groups:
+  # create a group per region e.g. us_east_2
+  - key: placement.region
+    prefix: region
+  # Create a group (or groups) based on the value of a custom tag "Role" and add them to a metagroup called "project"
+  - key: tags['service']
+    prefix: alef
+    parent_group: "ssm"

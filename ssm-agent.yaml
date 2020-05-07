@@ -1,0 +1,8 @@
+---
+- name: Ensure ssm installed
+  hosts: "{{ host_name }}"
+  become: true
+  become_user: root
+
+  roles:
+          - { role: aws-ssm-agent }

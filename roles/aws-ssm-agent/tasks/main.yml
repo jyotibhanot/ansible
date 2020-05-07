@@ -1,0 +1,13 @@
+---
+# tasks file for aws-ssm-agent
+
+- name: yum | Install aws ssm agent
+  yum:
+    name: "{{ ssm_package_url }}"
+    state: present
+
+- name: RedHat | Manage aws ssm agent service
+  service:
+    name: "{{ ssm_service }}"
+    state: started
+    enabled: yes

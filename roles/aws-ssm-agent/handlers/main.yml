@@ -1,0 +1,6 @@
+---
+# handlers file for aws-ssm-agent
+
+- name: Linux systemd reload
+  systemd:
+    daemon_reload: yes
